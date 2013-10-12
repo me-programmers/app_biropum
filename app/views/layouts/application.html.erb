@@ -2,34 +2,41 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "App Biropum" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App Biropum" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Biro Pemerintahan Umum Sulawesi Selatan" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Biro Pemerintahan Umum Sulawesi Selatan" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body class="<%= controller_name %> <%= action_name %>">
-    <div class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </div>
-    <div id="main" role="main">
+  <body class="<%= controller_name %> <%= action_name %>"> 
+    <div class="navbar-wrapper">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
+        <div id="logo-utama"></div>
+        <div class="navbar navbar-inverse">
+          <nav class="navbar-inner">        
+            <%= render 'layouts/navigation' %>       
+          </nav>
         </div>
+        <%= render 'layouts/carousel' %>  
+        <div id="main" role="main">
+          <div class="container">            
+            <div class="content">    
+              <div class="row">
+                <div class="span12">
+                  <%= render 'layouts/messages' %>
+                  <%= yield %>
+                </div>
+              </div>         
+              <footer>
+                <div class="container">
+                  <p class="muted credit">Developed on 2013</p>
+                </div>
+              </footer>
+            </div>
+          </div> <!--! end of .container -->
+        </div> <!--! end of #main -->
       </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+    </div> <!--! end of .navbar-wrapper -->
   </body>
 </html>

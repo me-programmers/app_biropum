@@ -15,6 +15,8 @@ gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
 gem 'thin'
+gem 'ckeditor_rails'
+gem 'carrierwave'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

@@ -27,7 +27,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: app_biropum_development
+  database: app_biropum_production
   host: localhost
   pool: 5
   username: app_user

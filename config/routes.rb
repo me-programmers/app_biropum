@@ -1,4 +1,7 @@
 AppBiropum::Application.routes.draw do
+  resources :posts
+  get "home/kontakkami"
+
   authenticated :user do
     root :to => 'home#index'
   end
