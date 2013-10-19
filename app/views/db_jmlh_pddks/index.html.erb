@@ -1,21 +1,23 @@
 <div class="span11">
   <h3>Informasi Kependudukan</h3>
   <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
-    <h3 class="small">Jumlah Penduduk</h3>
+    <h3 class="small">Jumlah Penduduk <%= params[ :search_kab ].nil? ? '' : 'Kabupaten ' + params[ :search_kab ] %></h3>
 
-    <%= form_tag db_jmlh_pddks_path, :method => 'get' do %>
-        <div class="row-fluid">
-            <div class="span3"><%= select_tag 'search_kec', options_for_select(@cbokec.collect{ |u| [u.nama_kec, u.nama_kec] }) %></div>                       
-            <div class="span6"><%= submit_tag "Cari", :name => "submit_search", :class=>"btn btn-info" %></div>
+    <%= form_tag db_jmlh_pddks_path, :method => 'get', :class => 'form-inline' do %>
+        <div class="row">
+            <div class="span6">
+              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }), :include_blank => true %>&nbsp;<%= submit_tag "Cari", :name => "submit_search", :class=>"btn btn-info" %></div>
         </div>
     <% end %>
 
     <table class="table table-bordered table-striped table-hover">
       <tr>
-        <th>Kdkec</th>
-        <th>Nama kec</th>
-        <th>Kd kel</th>
-        <th>Desa kel</th>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
         <th>Dak lk</th>
         <th>Dak pr</th>
         <th>Dak</th>
@@ -28,6 +30,8 @@
 
     <% @db_jmlh_pddks.each do |db_jmlh_pddk| %>
       <tr>
+        <td><%= db_jmlh_pddk.kdkab %></td>
+        <td><%= db_jmlh_pddk.nama_kab %></td>
         <td><%= db_jmlh_pddk.kdkec %></td>
         <td><%= db_jmlh_pddk.nama_kec %></td>
         <td><%= db_jmlh_pddk.kd_kel %></td>
@@ -48,42 +52,3 @@
       <%= link_to 'New Db jmlh pddk', new_db_jmlh_pddk_path %>
     <% end %>
 </div>
-
-<script>
-  $(document).ready(function(){
-    
-    //function Populate(IDS,str) {
-    //  var tmp = str.split(',');
-    //  var sel = document.getElementById(IDS);
-    //  sel.options.length=null;
-    //  for (i=0; i<tmp.length; i++) {
-    //  sel.options[i]=new Option(tmp[i], tmp[i]); 
-    //  } 
-    //}
-//
-    //$('#search_kec_id').change(function() {
-    //  //get txtAmt value  
-    //  var hsl_item = $('#search_kec_id').val()
-    //      ;
-//
-    //  $.ajax({
-    //    url: "/db_jmlh_pddks/index",
-    //      //url: "/hasil2s/addnew.js",
-    //      type: 'GET',
-    //      data: { itemperiksa: hsl_item },
-    //      dataType: 'json',
-    //      success: function (data) {
-    //        //Populate($('#search_kel_id'), data.labsatuan[0]);
-    //      },
-    //      error: function (jqXHR, data) {         
-    //        //$("#idpasien").append ( data );
-    //      }
-    //  });
-//
-      //change txtInterest% value
-      //$('#hasil2_hsl_lab_item_name').val(hsl_item);
-      //$('#hasil2_hsl_lab_satuan').val(@lab2_item_selected);
-    //});
-
-  });
-</script>

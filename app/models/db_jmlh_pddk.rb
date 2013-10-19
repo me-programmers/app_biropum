@@ -1,9 +1,9 @@
 class DbJmlhPddk < ActiveRecord::Base
-  attr_accessible :dak, :dak_lk, :dak_pr, :desa_kel, :kd_kel, :kdkec, :nama_kec
+  attr_accessible :dak, :dak_lk, :dak_pr, :desa_kel, :kd_kel, :kdkec, :nama_kec, :kdkab, :nama_kab
 
   def self.searchkec(a)
   	if a.present?
-  		where('nama_kec LIKE ?', "%#{a}%")
+  		where('nama_kab LIKE ?', "%#{a}%")
   	else
   		scoped
   	end

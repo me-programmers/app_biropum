@@ -1,35 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Position:</b>
-  <%= @post.position %>
-</p>
-
-<p>
-  <b>Typepost:</b>
-  <%= @post.typepost %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @post.image_url %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-<p>
-  <b>Dokumen:</b>
-  <%= @post.dokumen %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<span class="span11">
+  <h3><%= @post.title %></h3>
+  <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
+  <%= sanitize(@post.content) %>
+  <br />
+  <p>Untuk download, silahkan klik di bawah ini</p>
+  <% if user_signed_in? %>
+    <h3><%= link_to "Download " + @post.title, download_post_path(@post), :class => "btn btn-primary" %></h3>
+  <% else %>    
+    <h3><%= link_to @post.title, new_user_session_path, :class => "btn btn-primary" %></h3>
+  <% end %>
+</span>

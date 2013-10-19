@@ -3,15 +3,15 @@ class DbJmlhPddksController < ApplicationController
   # GET /db_jmlh_pddks.json
   def index
     #@db_jmlh_pddks = DbJmlhPddk.all
-    if params[:search_kec].present?       
-      @cbokec = DbJmlhPddk.all
-      @db_jmlh_pddks = DbJmlhPddk.searchkec(params[:search_kec]) #.order("desa_kel")
-      #@db_jmlh_pddks = DbJmlhPddk.where( :nama_kec => params[:search_kec] )
+    if params[:search_kab].present?       
+      @cbokab = DbJmlhPddk.all
+      @db_jmlh_pddks = DbJmlhPddk.searchkec(params[:search_kab]) #.order("desa_kel")
+      #@db_jmlh_pddks = DbJmlhPddk.where( :nama_kec => params[:search_kab] )
     else
-      @cbokec = DbJmlhPddk.all
+      @cbokab = DbJmlhPddk.all
       @db_jmlh_pddks = DbJmlhPddk.where('false')
     end
-    #@db_jmlh_pddks = DbJmlhPddk.search(params[:search_kec]).order("nama_kec")
+    #@db_jmlh_pddks = DbJmlhPddk.search(params[:search_kab]).order("nama_kec")
 
     respond_to do |format|
       format.html # index.html.erb
