@@ -3,10 +3,12 @@
   <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
   <%= sanitize(@post.content) %>
   <br />
-  <p>Untuk download, silahkan klik di bawah ini</p>
-  <% if user_signed_in? %>
-    <h3><%= link_to "Download " + @post.title, download_post_path(@post), :class => "btn btn-primary" %></h3>
-  <% else %>    
-    <h3><%= link_to @post.title, new_user_session_path, :class => "btn btn-primary" %></h3>
-  <% end %>
+  <% if @post.dokumen? %>
+    <p>Untuk download, silahkan klik di bawah ini</p>
+    <% if user_signed_in? %>
+      <h3><%= link_to "Download " + @post.title, download_post_path(@post), :class => "btn btn-primary" %></h3>
+    <% else %>    
+      <h3><%= link_to @post.title, new_user_session_path, :class => "btn btn-primary" %></h3>
+    <% end %>
+  <% end %>  
 </span>
