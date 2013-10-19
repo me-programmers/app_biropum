@@ -1,0 +1,36 @@
+
+    <h3>Informasi Jumlah Penduduk</h3>
+
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kdkec</th>
+        <th>Nama kec</th>
+        <th>Kd kel</th>
+        <th>Desa kel</th>
+        <th>Dak lk</th>
+        <th>Dak pr</th>
+        <th>Dak</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @db_jmlh_pddks.each do |db_jmlh_pddk| %>
+      <tr>
+        <td><%= db_jmlh_pddk.kdkec %></td>
+        <td><%= db_jmlh_pddk.nama_kec %></td>
+        <td><%= db_jmlh_pddk.kd_kel %></td>
+        <td><%= db_jmlh_pddk.desa_kel %></td>
+        <td><%= db_jmlh_pddk.dak_lk %></td>
+        <td><%= db_jmlh_pddk.dak_pr %></td>
+        <td><%= db_jmlh_pddk.dak %></td>
+        <td><%= link_to 'Show', db_jmlh_pddk %></td>
+        <td><%= link_to 'Edit', edit_db_jmlh_pddk_path(db_jmlh_pddk) %></td>
+        <td><%= link_to 'Destroy', db_jmlh_pddk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New Db jmlh pddk', new_db_jmlh_pddk_path %>

@@ -3,11 +3,11 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :position %>
+    <%= f.input :position, :collection => ['Header 1', 'Header 2', 'Header 3', 'Left 1', 'Left 2', 'Left 3', 'Content 1', 'Content 2', 'Content 3', 'Footer 1', 'Footer 2', 'Footer 3'] %>
     <%= f.input :typepost %>
     <%= f.input :image_url %>
-    <%= f.input :content %>
-    <%= f.input :dokumen %>
+    <%= f.input :content, :input_html => { :class => 'ckeditor' } %>
+    <%= f.input :dokumen, as: :file %>
   </div>
 
   <div class="form-actions">

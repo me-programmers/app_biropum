@@ -1,4 +1,5 @@
 AppBiropum::Application.routes.draw do
+  resources :db_jmlh_pddks
   resources :posts
   get "home/kontakkami"
 

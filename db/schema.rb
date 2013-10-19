@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131010112328) do
+ActiveRecord::Schema.define(:version => 20131015012608) do
+
+  create_table "db_jmlh_pddks", :force => true do |t|
+    t.string   "kdkec"
+    t.string   "nama_kec"
+    t.string   "kd_kel"
+    t.string   "desa_kel"
+    t.integer  "dak_lk"
+    t.integer  "dak_pr"
+    t.integer  "dak"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "position"
+    t.string   "typepost"
+    t.string   "image_url"
+    t.text     "content"
+    t.string   "dokumen"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

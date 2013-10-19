@@ -80,4 +80,10 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def download
+    @post = Post.find(params[:id])
+    filepath = "#{Rails.root}/public" + @post.dokumen.to_s
+    send_file filepath
+  end
 end

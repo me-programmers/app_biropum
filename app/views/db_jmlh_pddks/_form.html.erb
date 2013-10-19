@@ -1,0 +1,17 @@
+<%= simple_form_for(@db_jmlh_pddk) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :kdkec %>
+    <%= f.input :nama_kec %>
+    <%= f.input :kd_kel %>
+    <%= f.input :desa_kel %>
+    <%= f.input :dak_lk %>
+    <%= f.input :dak_pr %>
+    <%= f.input :dak %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
