@@ -14,8 +14,13 @@ class DbJmlhPddksController < ApplicationController
     #@db_jmlh_pddks = DbJmlhPddk.search(params[:search_kab]).order("nama_kec")
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @db_jmlh_pddks }
+      if params[:search_kab].present? 
+        format.html { render :partial => 'result', :object => @db_jmlh_pddks }
+      else
+        format.html
+      end
+      #format.json { render json: @db_jmlh_pddks }
+      #format.js
     end
   end
 

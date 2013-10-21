@@ -6,49 +6,46 @@
     <%= form_tag db_jmlh_pddks_path, :method => 'get', :class => 'form-inline' do %>
         <div class="row">
             <div class="span6">
-              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }), :include_blank => true %>&nbsp;<%= submit_tag "Cari", :name => "submit_search", :class=>"btn btn-info" %></div>
+              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }) %></div>
         </div>
     <% end %>
 
-    <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>Kode Kabupaten</th>
-        <th>Nama Kabupaten</th>
-        <th>Kode Kecamatan</th>
-        <th>Nama Kecamatan</th>
-        <th>Kode Kelurahan</th>
-        <th>Desa Kelurahan</th>
-        <th>Dak lk</th>
-        <th>Dak pr</th>
-        <th>Dak</th>
-        <% if user_signed_in? %> 
-          <th></th>
-          <th></th>
-          <th></th>
-        <% end %>
-      </tr>
+    <div id="result_table">
+      <%= render :partial => 'result', :object => @db_jmlh_pddks %>    
+    </div>
 
-    <% @db_jmlh_pddks.each do |db_jmlh_pddk| %>
-      <tr>
-        <td><%= db_jmlh_pddk.kdkab %></td>
-        <td><%= db_jmlh_pddk.nama_kab %></td>
-        <td><%= db_jmlh_pddk.kdkec %></td>
-        <td><%= db_jmlh_pddk.nama_kec %></td>
-        <td><%= db_jmlh_pddk.kd_kel %></td>
-        <td><%= db_jmlh_pddk.desa_kel %></td>
-        <td><%= number_with_delimiter( db_jmlh_pddk.dak_lk ) %></td>
-        <td><%= number_with_delimiter( db_jmlh_pddk.dak_pr ) %></td>
-        <td><%= number_with_delimiter( db_jmlh_pddk.dak ) %></td>
-        <% if user_signed_in? %> 
-          <td><%= link_to 'Show', db_jmlh_pddk %></td>
-          <td><%= link_to 'Edit', edit_db_jmlh_pddk_path(db_jmlh_pddk) %></td>
-          <td><%= link_to 'Destroy', db_jmlh_pddk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    </table>
     <% if user_signed_in? %>  
       <br />
       <%= link_to 'New Db jmlh pddk', new_db_jmlh_pddk_path %>
     <% end %>
 </div>
+
+<script>
+  $(document).ready(function(){
+    
+    $('#search_kab').change(function() {
+      //get txtAmt value  
+      var hsl_item = $('#search_kab').val()
+          ;
+
+      $.ajax({
+          url: "/db_jmlh_pddks",
+          type: 'GET',
+          data: { search_kab: hsl_item },
+          //dataType: 'html',
+          success: function (data) {
+            //$('#hasil2_hsl_lab_satuan').val( data.labsatuan[0] );
+            $("#result_table").html(data);
+          },
+          error: function (jqXHR, data) {         
+            //$("#idpasien").append ( data );
+          }
+      });
+
+      //change txtInterest% value
+      //$('#hasil2_hsl_lab_item_name').val(hsl_item);
+      //$('#hasil2_hsl_lab_satuan').val(@lab2_item_selected);
+    });
+
+  });
+</script>
