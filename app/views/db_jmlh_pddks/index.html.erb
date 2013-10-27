@@ -1,4 +1,4 @@
-<div class="span11">
+<div class="span11">  
   <h3>Informasi Kependudukan</h3>
   <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
     <h3 class="small">Jumlah Penduduk <%= params[ :search_kab ].nil? ? '' : 'Kabupaten ' + params[ :search_kab ] %></h3>
@@ -6,7 +6,7 @@
     <%= form_tag db_jmlh_pddks_path, :method => 'get', :class => 'form-inline' do %>
         <div class="row">
             <div class="span6">
-              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }) %></div>
+              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }) %>&nbsp;<%= image_tag("/assets/ajax-loader.gif", :id => "loader") %></div>
         </div>
     <% end %>
 
@@ -22,20 +22,24 @@
 
 <script>
   $(document).ready(function(){
-    
-    $('#search_kab').change(function() {
-      //get txtAmt value  
+    $("#loader").hide();
+    $('#search_kab').change(function() { 
       var hsl_item = $('#search_kab').val()
           ;
-
       $.ajax({
           url: "/db_jmlh_pddks",
           type: 'GET',
           data: { search_kab: hsl_item },
-          //dataType: 'html',
+          //dataType: 'json',
+          start: function () {
+            $("#loader").show();
+          },
           success: function (data) {
             //$('#hasil2_hsl_lab_satuan').val( data.labsatuan[0] );
             $("#result_table").html(data);
+          },
+          complete: function () {
+            $("#loader").hide();
           },
           error: function (jqXHR, data) {         
             //$("#idpasien").append ( data );
