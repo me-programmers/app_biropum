@@ -4,11 +4,11 @@ class DbJmlhPddksController < ApplicationController
   def index
     #@db_jmlh_pddks = DbJmlhPddk.all
     if params[:search_kab].present?       
-      @cbokab = DbJmlhPddk.all
+      @cbokab = DbJmlhPddk.select( :nama_kab ).uniq.order("nama_kab")
       @db_jmlh_pddks = DbJmlhPddk.searchkec(params[:search_kab]) #.order("desa_kel")
       #@db_jmlh_pddks = DbJmlhPddk.where( :nama_kec => params[:search_kab] )
     else
-      @cbokab = DbJmlhPddk.all
+      @cbokab = DbJmlhPddk.select( :nama_kab ).uniq.order("nama_kab")
       @db_jmlh_pddks = DbJmlhPddk.where('false')
     end
     #@db_jmlh_pddks = DbJmlhPddk.search(params[:search_kab]).order("nama_kec")
