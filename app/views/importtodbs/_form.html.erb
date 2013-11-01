@@ -1,0 +1,13 @@
+<%= simple_form_for(@importtodb) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fileupload, as: :file %>
+    <%= f.input :tag %>
+    <%= f.input :status %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

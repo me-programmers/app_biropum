@@ -1,4 +1,9 @@
 AppBiropum::Application.routes.draw do
+  resources :importtodbs do
+    get 'import_todb'
+  end
+
+
   resources :db_jmlh_pddks
 
   resources :posts do

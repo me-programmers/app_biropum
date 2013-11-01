@@ -1,0 +1,28 @@
+<h1>Listing importtodbs</h1>
+
+<table>
+  <tr>
+    <th>Fileupload</th>
+    <th>Tag</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @importtodbs.each do |importtodb| %>
+  <tr>
+    <td><%= importtodb.fileupload %></td>
+    <td><%= importtodb.tag %></td>
+    <td><%= importtodb.status %></td>
+    <td><%= link_to 'Show', importtodb %></td>
+    <td><%= link_to 'Edit', edit_importtodb_path(importtodb) %></td>
+    <td><%= link_to 'Destroy', importtodb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Import', importtodb_import_todb_path(importtodb) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Importtodb', new_importtodb_path %>

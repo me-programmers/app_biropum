@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019121041) do
+ActiveRecord::Schema.define(:version => 20131031075310) do
 
   create_table "db_jmlh_pddks", :force => true do |t|
     t.string   "kdkec"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20131019121041) do
     t.datetime "updated_at", :null => false
     t.string   "kdkab"
     t.string   "nama_kab"
+  end
+
+  create_table "importtodbs", :force => true do |t|
+    t.string   "fileupload"
+    t.string   "tag"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|

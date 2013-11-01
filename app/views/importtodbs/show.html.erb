@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fileupload:</b>
+  <%= @importtodb.fileupload %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @importtodb.tag %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @importtodb.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_importtodb_path(@importtodb) %> |
+<%= link_to 'Back', importtodbs_path %>

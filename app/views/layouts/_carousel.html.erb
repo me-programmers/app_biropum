@@ -4,32 +4,22 @@
       <%= image_tag("batas-wilayah.jpg", :alt => "Batas Wilayah") %>
       <div class="container">
         <div class="carousel-caption">
-          <h3>Batas Wilayah</h3>
-            <p class="lead">Peta batas wilayah.</p>
-              <a class="btn btn-large btn-primary" href="#">Selengkapnya</a>
+          <h3>Jumlah Penduduk</h3>
+            <p class="lead">Berisikan informasi jumlah penduduk sampai ke tingkat kelurahan</p>
+              <%= link_to "Selengkapnya", db_jmlh_pddks_path, :class => "btn btn-large btn-primary" %>
         </div>
       </div>         
     </div>  
     <div class="item">
-      <%= image_tag("slide-02.jpg") %>  
+      <%= image_tag("demographics.jpg") %>  
       <div class="container">
         <div class="carousel-caption">
-          <h3>Dr Hasrullah ke Tribun Pamer Buku Baru</h3>
-            <p class="lead">Dosen Komunikasi Politik Fakultas Ilmu Sosial dan Ilmu Politik (FISIP) Universitas Hasanuddin (Unhas) Makassar Dr Hasrullah M berkunjung di Redaksi Tribun Timur, Jl Cenderawasih, Makassar, Senin (4/2/13).</p>
-              <a class="btn btn-large btn-primary" href="#">Selengkapnya</a>
+          <h3>Data Pejabat Desa/Kecamatan</h3>
+            <p class="lead">Berisikan informasi data Pejabat Desa/Kecamatan di Sulawesi Selatan</p>
+              <%= link_to "Selengkapnya", post_path(2), :class => "btn btn-large btn-primary" %>
         </div>
       </div>        
-    </div>  
-    <div class="item">
-      <%= image_tag("slide-03.jpg") %>   
-      <div class="container">
-        <div class="carousel-caption">
-          <h3>Pelari Kenya Meriahkan HUT ke-40 Bosowa Corporation</h3>
-            <p class="lead">Perusahaan karet PT London Sumatera (Lonsum) di Desa Tammatto, Kecamatan Ujung Loe, Kabupaten Bulukumba telah membangun rumah pintar di daerah itu.</p>
-              <a class="btn btn-large btn-primary" href="#">Selengkapnya</a>
-        </div>
-      </div>       
-    </div>                    
+    </div>                          
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>

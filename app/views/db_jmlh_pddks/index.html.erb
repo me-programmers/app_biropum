@@ -6,7 +6,7 @@
     <%= form_tag db_jmlh_pddks_path, :method => 'get', :class => 'form-inline' do %>
         <div class="row">
             <div class="span6">
-              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }) %>&nbsp;<%= image_tag("/assets/ajax-loader.gif", :id => "loader") %></div>
+              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }), :prompt => "Pilih Kabupaten" %>&nbsp;<%= image_tag("/assets/ajax-loader.gif", :id => "loader") %></div>
         </div>
     <% end %>
 
@@ -26,26 +26,27 @@
     $('#search_kab').change(function() { 
       var hsl_item = $('#search_kab').val()
           ;
-      $.ajax({
-          url: "/db_jmlh_pddks",
-          type: 'GET',
-          data: { search_kab: hsl_item },
-          //dataType: 'json',
-          start: function () {
-            $("#loader").show();
-          },
-          success: function (data) {
-            //$('#hasil2_hsl_lab_satuan').val( data.labsatuan[0] );
-            $("#result_table").html(data);
-          },
-          complete: function () {
-            $("#loader").hide();
-          },
-          error: function (jqXHR, data) {         
-            //$("#idpasien").append ( data );
-          }
-      });
-
+      if (hsl_item) {
+        $.ajax({
+            url: "/db_jmlh_pddks",
+            type: 'GET',
+            data: { search_kab: hsl_item },
+            //dataType: 'json',
+            start: function () {
+              $("#loader").show();
+            },
+            success: function (data) {
+              //$('#hasil2_hsl_lab_satuan').val( data.labsatuan[0] );
+              $("#result_table").html(data);
+            },
+            complete: function () {
+              $("#loader").hide();
+            },
+            error: function (jqXHR, data) {         
+              //$("#idpasien").append ( data );
+            }
+        });
+      }
       //change txtInterest% value
       //$('#hasil2_hsl_lab_item_name').val(hsl_item);
       //$('#hasil2_hsl_lab_satuan').val(@lab2_item_selected);
