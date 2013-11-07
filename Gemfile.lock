@@ -37,6 +37,8 @@ GEM
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    bootstrap-addons-rails (0.1.2)
+      rails
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.0.4)
@@ -146,6 +148,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.1)
     rolify (3.2.0)
     rspec-core (2.14.5)
     rspec-expectations (2.14.3)
@@ -198,6 +201,7 @@ DEPENDENCIES
   activerecord-import
   better_errors
   binding_of_caller
+  bootstrap-addons-rails
   bootstrap-sass (~> 2.3.2.2)
   cancan
   capybara
@@ -216,6 +220,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 3.2.13)
   rails_layout
+  rmagick
   rolify
   rspec-rails
   sass-rails (~> 3.2.3)

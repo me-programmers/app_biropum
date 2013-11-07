@@ -1,4 +1,13 @@
 AppBiropum::Application.routes.draw do
+  resources :paintings
+
+
+  resources :galleries
+
+
+  resources :foto_galeris
+
+
   resources :importtodbs do
     get 'import_todb'
   end

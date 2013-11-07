@@ -1,0 +1,28 @@
+<div class="span11"> 
+  <h3>Galeri Foto</h3>
+  <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>  
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>Nama Galeri</th>
+      <% if user_signed_in? %>
+        <th></th>
+        <th></th>
+      <% end %>
+    </tr>
+
+  <% @galleries.each do |gallery| %>
+    <tr>
+      <td><%= link_to gallery.name, gallery, class: "btn" %></td>
+      <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
+        <td><%= link_to 'Hapus', gallery, method: :delete, data: { confirm: 'Anda yakin?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+  <% if user_signed_in? %>
+    <%= link_to 'Tambah Galeri', new_gallery_path %>
+  <% end %>
+</div>

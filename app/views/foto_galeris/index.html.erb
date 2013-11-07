@@ -1,0 +1,27 @@
+<h1>Listing foto_galeris</h1>
+
+<table>
+  <tr>
+    <th>Judul</th>
+    <th>Keterangan</th>
+    <th>Thumb</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @foto_galeris.each do |foto_galeri| %>
+  <tr>
+    <td><%= foto_galeri.judul %></td>
+    <td><%= foto_galeri.keterangan %></td>
+    <td><%= image_tag foto_galeri.foto_url %></td>
+    <td><%= link_to 'Show', foto_galeri %></td>
+    <td><%= link_to 'Edit', edit_foto_galeri_path(foto_galeri) %></td>
+    <td><%= link_to 'Destroy', foto_galeri, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Foto galeri', new_foto_galeri_path %>

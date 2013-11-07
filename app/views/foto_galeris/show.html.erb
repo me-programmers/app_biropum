@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Judul:</b>
+  <%= @foto_galeri.judul %>
+</p>
+
+<p>
+  <b>Keterangan:</b>
+  <%= @foto_galeri.keterangan %>
+</p>
+
+<p>
+  <b>Foto:</b>
+  <%= @foto_galeri.foto_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_foto_galeri_path(@foto_galeri) %> |
+<%= link_to 'Back', foto_galeris_path %>

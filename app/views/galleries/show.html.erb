@@ -1,0 +1,40 @@
+
+<div class="span11">
+  <% title @gallery.name %>
+  <h3><%= @gallery.name %></h3>
+  <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
+  <div id="paintings">
+    <% for painting in @gallery.paintings %>
+      <div class="painting">
+        <%= link_to painting.image_url, :rel => "prettyPhoto" do %>
+          <%= image_tag painting.image_url(:thumb) if painting.image? %>
+        <% end %>
+        <% if user_signed_in? %>
+          <div class="name"><%= painting.name %></div>
+          <div class="actions">
+            <%= link_to "edit", edit_painting_path(painting) %> |
+            <%= link_to "remove", painting, :confirm => 'Are you sure?', :method => :delete %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="span5">
+  <% if user_signed_in? %>
+    <%= link_to "Tambah Foto", new_painting_path(:gallery_id => @gallery), class: "btn btn-primary" %> |
+    <%= link_to "Hapus Galeri", @gallery, :confirm => 'Anda yakin?', :method => :delete %> |
+  <% end %>
+  <%= link_to "Lihat Semua Galeri", galleries_path, class: "btn btn-primary" %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto({
+      show_title: false /* true/false */
+      }
+    );
+  });
+</script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031075310) do
+ActiveRecord::Schema.define(:version => 20131106113913) do
 
   create_table "db_jmlh_pddks", :force => true do |t|
     t.string   "kdkec"
@@ -27,10 +27,32 @@ ActiveRecord::Schema.define(:version => 20131031075310) do
     t.string   "nama_kab"
   end
 
+  create_table "foto_galeris", :force => true do |t|
+    t.string   "judul"
+    t.string   "keterangan"
+    t.string   "foto"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "importtodbs", :force => true do |t|
     t.string   "fileupload"
     t.string   "tag"
     t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "paintings", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "name"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
