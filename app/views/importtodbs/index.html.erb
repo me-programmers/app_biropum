@@ -17,8 +17,14 @@
     <td><%= importtodb.status %></td>
     <td><%= link_to 'Show', importtodb %></td>
     <td><%= link_to 'Edit', edit_importtodb_path(importtodb) %></td>
-    <td><%= link_to 'Destroy', importtodb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to 'Import', importtodb_import_todb_path(importtodb) %></td>
+    <td><%= link_to 'Delete', importtodb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Import - Jumlah Penduduk', importtodb_import_todb_path(importtodb) %></td>
+    <td><%= link_to 'Import - Agama', importtodb_import_agama_path(importtodb) %></td>
+    <td><%= link_to 'Import - Pekerjaan', importtodb_import_pekerjaan_path(importtodb) %></td>
+    <td><%= link_to 'Import - Pendidikan', importtodb_import_pendidikan_path(importtodb) %></td>
+    <td><%= link_to 'Import - Status Kawin', importtodb_import_statuskawin_path(importtodb) %></td>
+    <td><%= link_to 'Import - Umur', importtodb_import_umur_path(importtodb) %></td>
+    <td><%= link_to 'Import - Usia Sekolah', importtodb_import_usiasekolah_path(importtodb) %></td>
   </tr>
 <% end %>
 </table>

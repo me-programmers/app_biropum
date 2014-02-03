@@ -1,0 +1,45 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>Laki</th>
+        <th>Perempuan</th>
+        <th>Belum Kawin</th>
+        <th>Kawin</th>
+        <th>Cerai Hidup</th>
+        <th>Cerai Mati</th>
+        <th>Jumlah Penduduk</th>
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+      
+    <% result.each do |db_statuskawin| %>
+      <tr>
+        <td><%= db_statuskawin.kd_kab %></td>
+        <td><%= db_statuskawin.nama_kab %></td>
+        <td><%= db_statuskawin.kd_kec %></td>
+        <td><%= db_statuskawin.nama_kec %></td>
+        <td><%= db_statuskawin.kd_kel %></td>
+        <td><%= db_statuskawin.desa_kel %></td>
+        <th><%= number_with_delimiter( db_statuskawin.laki ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.perempuan ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.belum_kawin ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.kawin ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.cerai_hidup ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.cerai_mati ) %></th>
+        <th><%= number_with_delimiter( db_statuskawin.jumlah_penduduk ) %></th>
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_statuskawin %></td>
+          <td><%= link_to 'Edit', edit_db_statuskawin_path(db_statuskawin) %></td>
+          <td><%= link_to 'Destroy', db_statuskawin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>

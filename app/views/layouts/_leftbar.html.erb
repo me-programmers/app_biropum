@@ -11,8 +11,13 @@
     <div class="bar" style="width: 30%;"></div>
   </div>
   <ul class="nav nav-pills nav-stacked">
-    <li><%= link_to image_tag("/assets/arrow.png") + " Jumlah Penduduk", db_jmlh_pddks_path %></li>
-    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi Penduduk", "#" %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Jumlah Penduduk", db_jmlh_pddks_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Agama", db_agamas_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Pekerjaan", db_pekerjaans_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Pendidikan", db_pendidikans_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Status Kawin", db_statuskawins_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Umur", db_umurs_path %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " Klasifikasi berdasarkan Usia Sekolah", db_usiasekolahs_path %></li>
   </ul>  
 
   <h3>Link Terkait</h3>
@@ -22,7 +27,7 @@
   <ul class="nav nav-pills nav-stacked">
     <li><%= link_to image_tag("/assets/arrow.png") + " APPSI", "http://www.appsi.or.id", :target => '_blank' %></li>
     <li><%= link_to image_tag("/assets/arrow.png") + " BPN", "http://www.bpn.go.id", :target => '_blank' %></li>
-    <li><%= link_to image_tag("/assets/arrow.png") + " DEPDAGRI", "http://www.kemendagri.go.id", :target => '_blank' %></li>
+    <li><%= link_to image_tag("/assets/arrow.png") + " KEMENDAGRI", "http://www.kemendagri.go.id", :target => '_blank' %></li>
     <li><%= link_to image_tag("/assets/arrow.png") + " APDESI", "#" %></li>
     <li><%= link_to image_tag("/assets/arrow.png") + " APKASI", "http://www.apkasi.or.id", :target => '_blank' %></li>
   </ul>

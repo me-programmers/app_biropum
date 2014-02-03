@@ -1,0 +1,52 @@
+<div class="span11">  
+  <h3>Informasi Kependudukan</h3>
+  <div class="progress progress-info progress-striped"><div class="bar" style="width: 30%;"></div></div>
+    <h3 class="small">Jumlah Penduduk berdasarkan Umur <%= params[ :search_kab ].nil? ? '' : 'Kabupaten ' + params[ :search_kab ] %></h3>
+
+    <%= form_tag db_umurs_path, :method => 'get', :class => 'form-inline' do %>
+        <div class="row">
+            <div class="span6">
+              Pilih Kabupaten : <%= select_tag 'search_kab', options_for_select(@cbokab.collect{ |u| [u.nama_kab, u.nama_kab] }), :prompt => "Pilih Kabupaten" %>&nbsp;<%= image_tag("/assets/ajax-loader.gif", :id => "loader") %></div>
+        </div>
+    <% end %>
+
+    <div id="result_table">
+      <%= render :partial => 'result', :object => @db_umurs %>    
+    </div>
+    
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#loader").hide();
+    $('#search_kab').change(function() { 
+      var hsl_item = $('#search_kab').val()
+          ;
+      if (hsl_item) {
+        $.ajax({
+            url: "/db_umurs",
+            type: 'GET',
+            data: { search_kab: hsl_item },
+            //dataType: 'json',
+            start: function () {
+              $("#loader").show();
+            },
+            success: function (data) {
+              //$('#hasil2_hsl_lab_satuan').val( data.labsatuan[0] );
+              $("#result_table").html(data);
+            },
+            complete: function () {
+              $("#loader").hide();
+            },
+            error: function (jqXHR, data) {         
+              //$("#idpasien").append ( data );
+            }
+        });
+      }
+      //change txtInterest% value
+      //$('#hasil2_hsl_lab_item_name').val(hsl_item);
+      //$('#hasil2_hsl_lab_satuan').val(@lab2_item_selected);
+    });
+
+  });
+</script>

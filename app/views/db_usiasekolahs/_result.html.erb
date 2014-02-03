@@ -1,0 +1,43 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>Pra sekolah</th>
+        <th>SD sederajat</th>
+        <th>SLTP sederajat</th>
+        <th>SLTA sederajat</th>
+        <th>Perguruan Tinggi</th>
+
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+      
+    <% result.each do |db_usiasekolah| %>
+      <tr>
+        <td><%= db_usiasekolah.kd_kab %></td>
+        <td><%= db_usiasekolah.nama_kab %></td>
+        <td><%= db_usiasekolah.kd_kec %></td>
+        <td><%= db_usiasekolah.nama_kec %></td>
+        <td><%= db_usiasekolah.kd_kel %></td>
+        <td><%= db_usiasekolah.desa_kel %></td>
+        <th><%= number_with_delimiter( db_usiasekolah.pra_sekolah ) %></th>
+        <th><%= number_with_delimiter( db_usiasekolah.sd_sederajat ) %></th>
+        <th><%= number_with_delimiter( db_usiasekolah.sltp_sederajat ) %></th>
+        <th><%= number_with_delimiter( db_usiasekolah.slta_sederajat ) %></th>
+        <th><%= number_with_delimiter( db_usiasekolah.perguruan_tinggi ) %></th>
+
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_usiasekolah %></td>
+          <td><%= link_to 'Edit', edit_db_usiasekolah_path(db_usiasekolah) %></td>
+          <td><%= link_to 'Destroy', db_usiasekolah, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>

@@ -1,0 +1,217 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>Laki</th>
+        <th>Perempuan</th>
+        <th>Belum/Tidak Bekerja</th>
+        <th>Mengurus rumah tangga</th>
+        <th>Pelajar/mahasiswa</th>
+        <th>Pensiunan</th>
+        <th>Pegawai Negeri Sipil</th>
+        <th>Tentara Nasional Indonesia</th>
+        <th>Kepolisian ri</th>
+        <th>Perdagangan</th>
+        <th>Petani/pekebun</th>
+        <th>Peternak</th>
+        <th>Nelayan/perikanan</th>
+        <th>Industri</th>
+        <th>Konstruksi</th>
+        <th>Transportasi</th>
+        <th>Karyawan Swasta</th>
+        <th>Karyawan BUMN</th>
+        <th>karyawan BUMD</th>
+        <th>Karyawan Honorer</th>
+        <th>Buruh harian lepas</th>
+        <th>Buruh tani perkebunan</th>
+        <th>Buruh nelayan perikanan</th>
+        <th>Buruh peternakan</th>
+        <th>Pembantu rumah tangga</th>
+        <th>Tukang cukur</th>
+        <th>Tukang lisrik</th>
+        <th>Tukang batu</th>
+        <th>Tukang kayu</th>
+        <th>Tukang sol_sepatu</th>
+        <th>Tukang las_pandai_besi</th>
+        <th>Tukang jahit</th>
+        <th>Tukang gigi</th>
+        <th>Penata rias</th>
+        <th>Penata busana</th>
+        <th>Penata rambut</th>
+        <th>Mekanik</th>
+        <th>Seniman</th>
+        <th>Tabib</th>
+        <th>Paraji</th>
+        <th>Perancang busana</th>
+        <th>Penterjemah</th>
+        <th>Imam_mesjid</th>
+        <th>Pendeta</th>
+        <th>Pastor</th>
+        <th>Wartawan</th>
+        <th>Ustadz/mubaligh</th>
+        <th>Juru masak</th>
+        <th>Promotor acara</th>
+        <th>Anggota dpr ri</th>
+        <th>Anggota dpd</th>
+        <th>Anggota bpk</th>
+        <th>Presiden</th>
+        <th>Wakil presiden</th>
+        <th>Anggota mahkamah konstitusi</th>
+        <th>Anggota kabinet kementrian</th>
+        <th>Duta besar</th>
+        <th>Gubernur</th>
+        <th>Wakil gubernur</th>
+        <th>Bupati</th>
+        <th>Wakil bupati</th>
+        <th>Walikota</th>
+        <th>Wakil walikota</th>
+        <th>Anggota dprd provinsi</th>
+        <th>Anggota dprd kabupaten/kota</th>
+        <th>Dosen</th>
+        <th>Guru</th>
+        <th>Pilot</th>
+        <th>Pengacara</th>
+        <th>Notaris</th>
+        <th>Arsitek</th>
+        <th>Akuntan</th>
+        <th>Konsultan</th>
+        <th>Dokter</th>
+        <th>Bidan</th>
+        <th>Perawat</th>
+        <th>Apoteker</th>
+        <th>Psikiater/psikolog</th>
+        <th>Penyiar televisi</th>
+        <th>Penyiar radio</th>
+        <th>Pelaut</th>
+        <th>Peneliti</th>
+        <th>Sopir</th>
+        <th>Pialang</th>
+        <th>Paranormal</th>
+        <th>Pedagang</th>
+        <th>Perangkat desa</th>
+        <th>Kepala desa</th>
+        <th>Biarawati</th>
+        <th>Wiraswasta</th>
+        <th>Lainnya</th>
+        <th>Jumlah penduduk</th>
+
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+
+    <% result.each do |db_pekerjaan| %>
+      <tr>
+        <td><%= db_pekerjaan.kd_kab %></td>
+        <td><%= db_pekerjaan.nama_kab %></td>
+        <td><%= db_pekerjaan.kd_kec %></td>
+        <td><%= db_pekerjaan.nama_kec %></td>
+        <td><%= db_pekerjaan.kd_kel %></td>
+        <td><%= db_pekerjaan.desa_kel %></td>
+        <th><%= number_with_delimiter( db_pekerjaan.laki ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.perempuan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.belum_tidak_bekerja ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.mengurus_rumah_tangga ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pelajar_mahasiswa ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pensiunan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pegawai_negeri_sipil ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tentara_nasional_indonesia ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.kepolisian_ri ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.perdagangan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.petani_pekebun ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.peternak ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.nelayan_perikanan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.industri ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.konstruksi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.transportasi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.karyawan_swasta ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.karyawan_bumn ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.karyawan_bumd ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.karyawan_honorer ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.buruh_harian_lepas ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.buruh_tani_perkebunan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.buruh_nelayan_perikanan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.buruh_peternakan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pembantu_rumah_tangga ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_cukur ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_lisrik ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_batu ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_kayu ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_sol_sepatu ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_las_pandai_besi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_jahit ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tukang_gigi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penata_rias ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penata_busana ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penata_rambut ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.mekanik ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.seniman ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.tabib ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.paraji ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.perancang_busana ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penterjemah ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.imam_mesjid ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pendeta ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pastor ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wartawan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.ustadz_mubaligh ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.juru_masak ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.promotor_acara ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_dpr_ri ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_dpd ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_bpk ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.presiden ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wakil_presiden ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_mahkamah_konstitusi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_kabinet_kementrian ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.duta_besar ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.gubernur ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wakil_gubernur ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.bupati ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wakil_bupati ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.walikota ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wakil_walikota ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_dprd_provinsi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.anggota_dprd_kabupaten_kota ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.dosen ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.guru ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pilot ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pengacara ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.notaris ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.arsitek ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.akuntan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.konsultan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.dokter ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.bidan ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.perawat ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.apoteker ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.psikiater_psikolog ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penyiar_televisi ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.penyiar_radio ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pelaut ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.peneliti ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.sopir ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pialang ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.paranormal ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.pedagang ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.perangkat_desa ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.kepala_desa ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.biarawati ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.wiraswasta ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.lainnya ) %></th>
+        <th><%= number_with_delimiter( db_pekerjaan.jumlah_penduduk ) %></th>
+
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_pekerjaan %></td>
+          <td><%= link_to 'Edit', edit_db_pekerjaan_path(db_pekerjaan) %></td>
+          <td><%= link_to 'Destroy', db_pekerjaan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>

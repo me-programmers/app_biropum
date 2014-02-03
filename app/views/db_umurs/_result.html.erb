@@ -1,0 +1,64 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>0-4 thn</th>
+        <th>5-9 thn</th>
+        <th>10-14 thn</th>
+        <th>15-19 thn</th>
+        <th>20-24 thn</th>
+        <th>25-29 thn</th>
+        <th>30-34 thn</th>
+        <th>35-39 thn</th>
+        <th>40-44 thn</th>
+        <th>45-49 thn</th>
+        <th>50-54 thn</th>
+        <th>55-59 thn</th>
+        <th>60-64 thn</th>
+        <th>65-69 thn</th>
+        <th>70-74 thn</th>
+        <th>74 thn</th>
+
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+      
+    <% result.each do |db_umur| %>
+      <tr>
+        <td><%= db_umur.kd_kab %></td>
+        <td><%= db_umur.nama_kab %></td>
+        <td><%= db_umur.kd_kec %></td>
+        <td><%= db_umur.nama_kec %></td>
+        <td><%= db_umur.kd_kel %></td>
+        <td><%= db_umur.desa_kel %></td>
+        <th><%= number_with_delimiter( db_umur.i04thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i59thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i1014thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i1519thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i2024thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i2529thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i3034thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i3539thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i4044thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i4549thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i5054thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i5559thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i6064thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i6569thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i7074thn ) %></th>
+        <th><%= number_with_delimiter( db_umur.i74thn ) %></th>
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_umur %></td>
+          <td><%= link_to 'Edit', edit_db_umur_path(db_umur) %></td>
+          <td><%= link_to 'Destroy', db_umur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>

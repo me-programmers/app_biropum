@@ -1,0 +1,57 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>Laki</th>
+        <th>Perempuan</th>
+        <th>Belum Sekolah</th>
+        <th>Tidak Tamat SD</th>
+        <th>Tamat SD</th>
+        <th>SLTP</th>
+        <th>SLTA</th>
+        <th>Diploma II</th>
+        <th>Diploma III</th>
+        <th>Strata I</th>
+        <th>Strata II</th>
+        <th>Strata III</th>
+        <th>Jumlah Penduduk</th>
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+
+    <% result.each do |db_pendidikan| %>
+      <tr>
+        <td><%= db_pendidikan.kd_kab %></td>
+        <td><%= db_pendidikan.nama_kab %></td>
+        <td><%= db_pendidikan.kd_kec %></td>
+        <td><%= db_pendidikan.nama_kec %></td>
+        <td><%= db_pendidikan.kd_kel %></td>
+        <td><%= db_pendidikan.desa_kel %></td>
+        <th><%= number_with_delimiter( db_pendidikan.laki ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.perempuan ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.belum_sekolah ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.tidak_tamat_sd ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.tamat_sd ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.sltp ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.slta ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.dip_ii ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.dip_iii ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.strata_i ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.strata_ii ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.strata_iii ) %></th>
+        <th><%= number_with_delimiter( db_pendidikan.jumlah_penduduk ) %></th>
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_pendidikan %></td>
+          <td><%= link_to 'Edit', edit_db_pendidikan_path(db_pendidikan) %></td>
+          <td><%= link_to 'Destroy', db_pendidikan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>

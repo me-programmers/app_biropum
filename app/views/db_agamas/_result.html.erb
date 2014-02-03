@@ -1,0 +1,51 @@
+<table class="back-for-table table table-bordered table-striped table-hover">
+      <tr>
+        <th>Kode Kabupaten</th>
+        <th>Nama Kabupaten</th>
+        <th>Kode Kecamatan</th>
+        <th>Nama Kecamatan</th>
+        <th>Kode Kelurahan</th>
+        <th>Desa Kelurahan</th>
+        <th>Laki</th>
+        <th>Perempuan</th>
+        <th>Islam</th>
+        <th>Kristen</th>
+        <th>Katolik </th>
+        <th>Hindu </th>
+        <th>Budha </th>
+        <th>Konghucu </th>
+        <th>Kepercayaan </th>
+        <th>Jumlah Penduduk</th>
+        <% if user_signed_in? %> 
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+
+    <% result.each do |db_agama| %>
+      <tr>
+        <td><%= db_agama.kdkab %></td>
+        <td><%= db_agama.nama_kab %></td>
+        <td><%= db_agama.kd_kec %></td>
+        <td><%= db_agama.nama_kec %></td>
+        <td><%= db_agama.kd_kel %></td>
+        <td><%= db_agama.desa_kel %></td>
+        <th><%= number_with_delimiter( db_agama.laki ) %></th>
+        <th><%= number_with_delimiter( db_agama.perempuan ) %></th>
+        <th><%= number_with_delimiter( db_agama.islam ) %></th>
+        <th><%= number_with_delimiter( db_agama.kristen ) %></th>
+        <th><%= number_with_delimiter( db_agama.katolik  ) %></th>
+        <th><%= number_with_delimiter( db_agama.hindu  ) %></th>
+        <th><%= number_with_delimiter( db_agama.budha  ) %></th>
+        <th><%= number_with_delimiter( db_agama.konghucu  ) %></th>
+        <th><%= number_with_delimiter( db_agama.kepercayaan  ) %></th>
+        <th><%= number_with_delimiter( db_agama.jumlah_penduduk ) %></th>
+        <% if user_signed_in? %> 
+          <td><%= link_to 'Show', db_agama %></td>
+          <td><%= link_to 'Edit', edit_db_agama_path(db_agama) %></td>
+          <td><%= link_to 'Destroy', db_agama, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>
